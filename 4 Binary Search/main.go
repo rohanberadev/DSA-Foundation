@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	arr := []int{4, 5, 6, 7, 0, 1, 2, 3}
+	arr := []int{1, 1, 2, 2, 3, 3, 4, 5, 5, 6, 6}
 
 	// Question 1
 	// fmt.Println(array1d.BinarySearchIterative(arr, 6))
@@ -48,6 +48,12 @@ func main() {
 	// fmt.Println(array1d.FindMinRotatedArrayOptimal(arr))
 
 	// Question 11
-	fmt.Println(array1d.FindManyTimesArrayRotatedBrute(arr))
-	fmt.Println(array1d.FindManyTimesArrayRotatedOptimal(arr))
+	// fmt.Println(array1d.FindManyTimesArrayRotatedBrute(arr))
+	// fmt.Println(array1d.FindManyTimesArrayRotatedOptimal(arr))
+
+	// Question 12
+	fmt.Println(array1d.FindElemAppearOnceSortedArrayBrute(arr))
+	fmt.Println(array1d.FindElemAppearOnceSortedArrayHashing(arr))
+	fmt.Println(array1d.FindElemAppearOnceSortedArrayXOR(arr))
+	fmt.Println(array1d.FindElemAppearOnceSortedArrayOptimal(arr))
 }
