@@ -44,6 +44,10 @@ func main() {
 	// fmt.Println(array1d.SearchRotatedArray2Optimal(arr, 3))
 
 	// Question 10
-	fmt.Println(array1d.FindMinRotatedArrayBrute(arr))
-	fmt.Println(array1d.FindMinRotatedArrayOptimal(arr))
+	// fmt.Println(array1d.FindMinRotatedArrayBrute(arr))
+	// fmt.Println(array1d.FindMinRotatedArrayOptimal(arr))
+
+	// Question 11
+	fmt.Println(array1d.FindManyTimesArrayRotatedBrute(arr))
+	fmt.Println(array1d.FindManyTimesArrayRotatedOptimal(arr))
 }
