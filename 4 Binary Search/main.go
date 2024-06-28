@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	array1d "myBinarySearch/array1D"
+	arrayans "myBinarySearch/arrayAns"
 )
 
 func main() {
-	arr := []int{1, 2, 3, 4, 5, 6, 7, 8, 5, 1}
+	// arr := []int{1, 2, 3, 4, 5, 6, 7, 8, 5, 1}
 
 	// Question 1
 	// fmt.Println(array1d.BinarySearchIterative(arr, 6))
@@ -58,6 +58,14 @@ func main() {
 	// fmt.Println(array1d.FindElemAppearOnceSortedArrayOptimal(arr))
 
 	// Question 13
-	fmt.Println(array1d.FindPeakElementBrute(arr))
-	fmt.Println(array1d.FindPeakElementOptimal(arr))
+	// fmt.Println(array1d.FindPeakElementBrute(arr))
+	// fmt.Println(array1d.FindPeakElementOptimal(arr))
+
+	// Question 14
+	// fmt.Println(arrayans.FindSqrtOfNBrute(28))
+	// fmt.Println(arrayans.FindSqrtOfNOptimal(28))
+
+	// Question 15
+	fmt.Println(arrayans.FindNthSqrtOfM_Brute(69, 4))
+	fmt.Println(arrayans.FindNthSqrtOfM_Optimal(27, 3))
 }
