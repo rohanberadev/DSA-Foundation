@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	// arr := []int{1, 2, 3, 4, 5, 6, 7, 8, 5, 1}
+	arr := []int{7, 15, 6, 3}
 
 	// Question 1
 	// fmt.Println(array1d.BinarySearchIterative(arr, 6))
@@ -66,6 +66,10 @@ func main() {
 	// fmt.Println(arrayans.FindSqrtOfNOptimal(28))
 
 	// Question 15
-	fmt.Println(arrayans.FindNthSqrtOfM_Brute(69, 4))
-	fmt.Println(arrayans.FindNthSqrtOfM_Optimal(27, 3))
+	// fmt.Println(arrayans.FindNthSqrtOfM_Brute(69, 4))
+	// fmt.Println(arrayans.FindNthSqrtOfM_Optimal(27, 3))
+
+	// Question 16
+	fmt.Println(arrayans.KokoBananasBrute(arr, 8))
+	fmt.Println(arrayans.KokoBananasOptimal(arr, 8))
 }
