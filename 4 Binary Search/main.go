@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	arr := []int{7, 15, 6, 3}
+	arr := []int{5, 4, 5, 2, 3, 4, 5, 6}
 
 	// Question 1
 	// fmt.Println(array1d.BinarySearchIterative(arr, 6))
@@ -70,6 +70,19 @@ func main() {
 	// fmt.Println(arrayans.FindNthSqrtOfM_Optimal(27, 3))
 
 	// Question 16
-	fmt.Println(arrayans.KokoBananasBrute(arr, 8))
-	fmt.Println(arrayans.KokoBananasOptimal(arr, 8))
+	// fmt.Println(arrayans.KokoBananasBrute(arr, 8))
+	// fmt.Println(arrayans.KokoBananasOptimal(arr, 8))
+
+	// Question 17
+	// fmt.Println(arrayans.MinDaysToMakeMBouquet_Myself(arr, 3, 2))
+	// fmt.Println(arrayans.MinDaysToMakeMBouquet_Brute(arr, 3, 2))
+	// fmt.Println(arrayans.MinDaysToMakeMBouquet_Optimal(arr, 3, 2))
+
+	// Question 18
+	// fmt.Println(arrayans.FindSmallestDivisorBrute(arr, 8))
+	// fmt.Println(arrayans.FindSmallestDivisorOptimal(arr, 8))
+
+	// Qiestion 19
+	fmt.Println(arrayans.FindLowestCapacityShipPackagesWithinDays_Brute(arr, 5))
+	fmt.Println(arrayans.FindLowestCapacityShipPackagesWithinDays_Optimal(arr, 5))
 }
