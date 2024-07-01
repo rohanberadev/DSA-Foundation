@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	arr := []int{5, 4, 5, 2, 3, 4, 5, 6}
+	arr := []int{0, 3, 4, 7, 10, 9}
 
 	// Question 1
 	// fmt.Println(array1d.BinarySearchIterative(arr, 6))
@@ -82,7 +82,14 @@ func main() {
 	// fmt.Println(arrayans.FindSmallestDivisorBrute(arr, 8))
 	// fmt.Println(arrayans.FindSmallestDivisorOptimal(arr, 8))
 
-	// Qiestion 19
-	fmt.Println(arrayans.FindLowestCapacityShipPackagesWithinDays_Brute(arr, 5))
-	fmt.Println(arrayans.FindLowestCapacityShipPackagesWithinDays_Optimal(arr, 5))
+	// Question 19
+	// fmt.Println(arrayans.FindLowestCapacityShipPackagesWithinDays_Brute(arr, 5))
+	// fmt.Println(arrayans.FindLowestCapacityShipPackagesWithinDays_Optimal(arr, 5))
+
+	// Question 20
+	// fmt.Println(arrayans.FindKthMissingNum_Brute(arr, 4))
+	// fmt.Println(arrayans.FindKthMissingNum_Optimal(arr, 4))
+
+	// Question 21
+	fmt.Println(arrayans.AgressiveCows_Brute(arr, 4))
 }
