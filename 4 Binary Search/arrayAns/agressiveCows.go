@@ -33,3 +33,21 @@ func AgressiveCows_Brute(arr []int, k int) int {
 
 	return limit
 }
+
+func AgressiveCows_Optimal(arr []int, k int) int {
+	slices.Sort(arr)
+	low := 1
+	high := arr[len(arr)-1] - arr[0]
+
+	for low <= high {
+		mid := (low + high) / 2
+
+		if PossibleCowPlacement(arr, k, mid) {
+			low = mid + 1
+		} else {
+			high = mid - 1
+		}
+	}
+
+	return high
+}
