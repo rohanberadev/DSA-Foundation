@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	arr := []int{10, 20, 30, 40}
+	arr := []int{1, 13, 17, 23}
 
 	// Question 1
 	// fmt.Println(array1d.BinarySearchIterative(arr, 6))
@@ -103,6 +103,10 @@ func main() {
 	// fmt.Println(arrayans.SplitArrayLargestSum_Optimal(arr, 3))
 
 	// Question 24
-	fmt.Println(arrayans.PainterPartition_Brute(arr, 2))
-	fmt.Println(arrayans.PainterPartition_Optimal(arr, 2))
+	// fmt.Println(arrayans.PainterPartition_Brute(arr, 2))
+	// fmt.Println(arrayans.PainterPartition_Optimal(arr, 2))
+
+	// Question 25
+	fmt.Println(arrayans.MinimizeMaxDistGasStations_Brute(arr, 4))
+	fmt.Println(arrayans.MinimizeMaxDistGasStations_PriorityQueue(arr, 4))
 }
