@@ -16,7 +16,7 @@ func ReversePairsBrute(arr []int) int {
 	return count
 }
 
-func Merge1(arr []int, low, mid, high int) {
+func Merge1(arr []int, low, mid, high int) int {
 	left := low
 	right := mid + 1
 	temp := make([]int, 0, high-low+1)
@@ -46,14 +46,16 @@ func Merge1(arr []int, low, mid, high int) {
 		arr[i] = temp[i-low]
 	}
 
+	return CountPairs(arr, low, mid, high)
+
 }
 
 func CountPairs(arr []int, low, mid, high int) int {
 	right := mid + 1
 	cnt := 0
 
-	for i := low; i <= mid; i++ {
-		for right <= high && arr[i] > 2*arr[right] {
+	for left := low; left <= mid; left++ {
+		for right <= high && arr[left] > 2*arr[right] {
 			right++
 		}
 
@@ -71,7 +73,7 @@ func MergeSort1(arr []int, low, high int) int {
 		count += MergeSort(arr, low, mid)
 		count += MergeSort(arr, mid+1, high)
 
-		Merge1(arr, low, mid, high)
+		count += Merge1(arr, low, mid, high)
 	}
 
 	return count
