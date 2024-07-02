@@ -109,4 +109,5 @@ func main() {
 	// Question 25
 	fmt.Println(arrayans.MinimizeMaxDistGasStations_Brute(arr, 4))
 	fmt.Println(arrayans.MinimizeMaxDistGasStations_PriorityQueue(arr, 4))
+	fmt.Println(arrayans.MinimizeMaxDistGasStations_Optimal(arr, 4))
 }

@@ -1,6 +1,8 @@
 package arrayans
 
 import (
+	"math"
+
 	pq "github.com/emirpasic/gods/queues/priorityqueue"
 	"github.com/emirpasic/gods/utils"
 )
@@ -56,7 +58,7 @@ func MinimizeMaxDistGasStations_Brute(arr []int, k int) float64 {
 	return maxAns
 }
 
-// Time :- O(K * Log N) Space :- O(2(N-1))
+// Time :- O((N Log N) + (K * N Log N)) Space :- O(2(N-1))
 func MinimizeMaxDistGasStations_PriorityQueue(arr []int, k int) float64 {
 	n := len(arr)
 	howMany := make([]int, n-1)
@@ -90,4 +92,47 @@ func MinimizeMaxDistGasStations_PriorityQueue(arr []int, k int) float64 {
 	tp, _ := priority_queue.Peek()
 
 	return tp.(Element).sectionLen
+}
+
+func CountGasStations(arr []int, dist float64) int {
+	n := len(arr)
+	stations := 0
+
+	for i := 1; i < n; i++ {
+		numBetween := int(float64(arr[i]-arr[i-1]) / dist)
+
+		if float64(arr[i]-arr[i]) == float64(numBetween)*dist {
+			numBetween--
+		}
+		stations += numBetween
+	}
+
+	return stations
+}
+
+func MinimizeMaxDistGasStations_Optimal(arr []int, k int) float64 {
+	n := len(arr)
+	low := 0.0
+	high := float64(math.MinInt64)
+
+	for i := 1; i < n; i++ {
+		diff := float64(arr[i]) - float64(arr[i-1])
+		if diff > high {
+			high = diff
+		}
+	}
+
+	for high-low > 1e-6 {
+		mid := (low + high) / 2.0
+		stations := CountGasStations(arr, mid)
+
+		if stations > k {
+			low = mid
+
+		} else {
+			high = mid
+		}
+	}
+
+	return high
 }
