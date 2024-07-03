@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	arrayans "myBinarySearch/arrayAns"
+	array2d "myBinarySearch/array2D"
 )
 
 func main() {
-	arr := []int{1, 13, 17, 23}
+	// arr := []int{1, 13, 17, 23}
 
 	// Question 1
 	// fmt.Println(array1d.BinarySearchIterative(arr, 6))
@@ -107,7 +107,41 @@ func main() {
 	// fmt.Println(arrayans.PainterPartition_Optimal(arr, 2))
 
 	// Question 25
-	fmt.Println(arrayans.MinimizeMaxDistGasStations_Brute(arr, 4))
-	fmt.Println(arrayans.MinimizeMaxDistGasStations_PriorityQueue(arr, 4))
-	fmt.Println(arrayans.MinimizeMaxDistGasStations_Optimal(arr, 4))
+	// fmt.Println(arrayans.MinimizeMaxDistGasStations_Brute(arr, 4))
+	// fmt.Println(arrayans.MinimizeMaxDistGasStations_PriorityQueue(arr, 4))
+	// fmt.Println(arrayans.MinimizeMaxDistGasStations_Optimal(arr, 4))
+
+	// Question 26
+	// arr1 := []int{2, 4, 6}
+	// arr2 := []int{1, 3, 5}
+	// fmt.Println(arrayans.MedianOf2SortedArray_Brute(arr1, arr2))
+	// fmt.Println(arrayans.MedianOf2SortedArray_Better(arr1, arr2))
+	// fmt.Println(arrayans.MedianOf2SortedArray_Optimal(arr1, arr2))
+
+	// Question 27
+	// arr1 := []int{2, 4, 6}
+	// arr2 := []int{1, 3, 5}
+	// fmt.Println(arrayans.KthElementOf2SortedArray_Brute(arr1, arr2, 4))
+	// fmt.Println(arrayans.KthElementOf2SortedArray_Better(arr1, arr2, 4))
+	// fmt.Println(arrayans.KthElementOf2SortedArray_Optimal(arr1, arr2, 1))
+
+	// Question 28
+	// mat := [][]int{{1, 1, 1}, {0, 0, 1}, {0, 0, 0}}
+	// fmt.Println(array2d.FindMaxNumberOf1InRow_Brute(mat))
+	// fmt.Println(array2d.FindMaxNumberOf1InRow_Optimal(mat))
+
+	// Question 29
+	// mat := [][]int{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}}
+	// fmt.Println(array2d.SearchIn2DArray_Brute(mat, 8))
+	// fmt.Println(array2d.SearchIn2DArray_Better(mat, 8))
+	// fmt.Println(array2d.SearchIn2DArray_Optimal(mat, 8))
+
+	// Question 30
+	mat := [][]int{{1, 4, 7, 11, 15}, {2, 5, 8, 12, 19},
+		{3, 6, 9, 16, 22}, {10, 13, 14, 17, 24},
+		{18, 21, 23, 26, 30}}
+
+	fmt.Println(array2d.SearchIn2DArrayRowAndColWise_Brute(mat, 8))
+	fmt.Println(array2d.SearchIn2DArrayRowAndColWise_Better(mat, 8))
+	fmt.Println(array2d.SearchIn2DArrayRowAndColWise_Optimal(mat, 8))
 }
