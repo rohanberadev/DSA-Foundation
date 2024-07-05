@@ -157,4 +157,5 @@ func main() {
 		{21, 23, 25, 27, 29},
 	}
 	fmt.Println(array2d.FindMedianInRowWiseSortedMat_Brute(mat))
+	fmt.Println(array2d.FindMedianInRowWiseSortedMat_Optimal(mat))
 }
