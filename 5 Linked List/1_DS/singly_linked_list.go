@@ -23,16 +23,16 @@ func NewNode[T any](data T, next *Node) *Node {
 }
 
 // Insert At First.
-func (ls *LinkedList) InsertAtFront(node Node) {
+func (ls *LinkedList) InsertAtFront(node *Node) {
 	node.Next = ls.Head
-	ls.Head = &node
+	ls.Head = node
 }
 
 // Insert At Last.
-func (ls *LinkedList) InsertAtBack(node Node) {
+func (ls *LinkedList) InsertAtBack(node *Node) {
 	node.Next = nil
-	ls.Tail.Next = &node
-	ls.Tail = &node
+	ls.Tail.Next = node
+	ls.Tail = node
 }
 
 // Delete At Fisrt.
@@ -72,7 +72,7 @@ func (ls *LinkedList) Print() {
 }
 
 // Get the length of the Linked List.
-func (ls *LinkedList) Len() int {
+func (ls *LinkedList) Size() int {
 	len := 0
 	for node := ls.Head; node != nil; node = node.Next {
 		len++
@@ -100,7 +100,7 @@ func ConvertArrayToLL(array []interface{}) *LinkedList {
 
 // Convert Linked List to Array.
 func ConvertLLToArray(ls *LinkedList) []interface{} {
-	array := make([]interface{}, 0, ls.Len())
+	array := make([]interface{}, 0, ls.Size())
 	for node := ls.Head; node != nil; node = node.Next {
 		array = append(array, node.Data)
 	}
