@@ -137,11 +137,24 @@ func main() {
 	// fmt.Println(array2d.SearchIn2DArray_Optimal(mat, 8))
 
 	// Question 30
-	mat := [][]int{{1, 4, 7, 11, 15}, {2, 5, 8, 12, 19},
-		{3, 6, 9, 16, 22}, {10, 13, 14, 17, 24},
-		{18, 21, 23, 26, 30}}
+	// mat := [][]int{{1, 4, 7, 11, 15}, {2, 5, 8, 12, 19},
+	// 	{3, 6, 9, 16, 22}, {10, 13, 14, 17, 24},
+	// 	{18, 21, 23, 26, 30}}
 
-	fmt.Println(array2d.SearchIn2DArrayRowAndColWise_Brute(mat, 8))
-	fmt.Println(array2d.SearchIn2DArrayRowAndColWise_Better(mat, 8))
-	fmt.Println(array2d.SearchIn2DArrayRowAndColWise_Optimal(mat, 8))
+	// fmt.Println(array2d.SearchIn2DArrayRowAndColWise_Brute(mat, 8))
+	// fmt.Println(array2d.SearchIn2DArrayRowAndColWise_Better(mat, 8))
+	// fmt.Println(array2d.SearchIn2DArrayRowAndColWise_Optimal(mat, 8))
+
+	// Question 31
+	// mat := [][]int{{10, 20, 15}, {21, 30, 14}, {7, 16, 32}}
+	// fmt.Println(array2d.FindPeak2D_Brute(mat))
+	// fmt.Println(array2d.FindPeak2D_Optimal(mat))
+
+	// Question 32
+	mat := [][]int{
+		{1, 2, 3, 4, 5},
+		{8, 9, 11, 12, 13},
+		{21, 23, 25, 27, 29},
+	}
+	fmt.Println(array2d.FindMedianInRowWiseSortedMat_Brute(mat))
 }
