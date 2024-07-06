@@ -1,4 +1,4 @@
-package ds
+package ll
 
 import (
 	"fmt"
@@ -18,34 +18,61 @@ func NewList(node *Node) *LinkedList {
 	return &LinkedList{Head: node, Tail: node}
 }
 
-func NewNode[T any](data T, next *Node) *Node {
+func NewNode(data interface{}, next *Node) *Node {
 	return &Node{Data: data, Next: next}
+}
+
+func (ls *LinkedList) IsEmpty() bool {
+	return ls.Head == nil
 }
 
 // Insert At First.
 func (ls *LinkedList) InsertAtFront(node *Node) {
 	node.Next = ls.Head
 	ls.Head = node
+
+	if ls.Tail == nil {
+		ls.Tail = node
+	}
 }
 
 // Insert At Last.
 func (ls *LinkedList) InsertAtBack(node *Node) {
-	node.Next = nil
+	if ls.IsEmpty() {
+		ls.Head = node
+		ls.Tail = node
+		return
+	}
+
 	ls.Tail.Next = node
 	ls.Tail = node
 }
 
 // Delete At Fisrt.
 func (ls *LinkedList) DeleteFront() *Node {
+	if ls.IsEmpty() {
+		fmt.Println("List is empty. Nothing to delete.")
+		return NewNode(nil, nil)
+	}
+
 	head := ls.Head
 	ls.Head = head.Next
 	head.Next = nil
+
+	if ls.Head == nil {
+		ls.Tail = nil
+	}
 
 	return head
 }
 
 // Delete At Last.
 func (ls *LinkedList) DeleteAtBack() *Node {
+	if ls.IsEmpty() {
+		fmt.Println("List is empty. Nothing to delete.")
+		return NewNode(nil, nil)
+	}
+
 	node := ls.Head
 	tail := ls.Tail
 
@@ -54,6 +81,10 @@ func (ls *LinkedList) DeleteAtBack() *Node {
 	}
 	node.Next = nil
 	ls.Tail = node
+
+	if ls.Tail == nil {
+		ls.Head = nil
+	}
 
 	return tail
 }
