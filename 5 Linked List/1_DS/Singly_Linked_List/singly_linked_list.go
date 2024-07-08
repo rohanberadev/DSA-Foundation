@@ -18,6 +18,10 @@ func NewList(node *Node) *LinkedList {
 	return &LinkedList{Head: node, Tail: node}
 }
 
+func NewEmptyList() *LinkedList {
+	return &LinkedList{Head: nil, Tail: nil}
+}
+
 func NewNode(data interface{}, next *Node) *Node {
 	return &Node{Data: data, Next: next}
 }
@@ -49,19 +53,22 @@ func (ls *LinkedList) InsertAtBack(node *Node) {
 }
 
 // Delete At Fisrt.
-func (ls *LinkedList) DeleteFront() *Node {
+func (ls *LinkedList) DeleteAtFront() *Node {
 	if ls.IsEmpty() {
 		fmt.Println("List is empty. Nothing to delete.")
 		return NewNode(nil, nil)
 	}
 
 	head := ls.Head
+
+	if head == ls.Tail {
+		ls.Head = nil
+		ls.Tail = nil
+		return head
+	}
+
 	ls.Head = head.Next
 	head.Next = nil
-
-	if ls.Head == nil {
-		ls.Tail = nil
-	}
 
 	return head
 }
@@ -76,15 +83,18 @@ func (ls *LinkedList) DeleteAtBack() *Node {
 	node := ls.Head
 	tail := ls.Tail
 
-	for node.Next != ls.Tail {
+	if node == tail {
+		ls.Head = nil
+		ls.Tail = nil
+		return tail
+	}
+
+	for node.Next != tail {
 		node = node.Next
 	}
+
 	node.Next = nil
 	ls.Tail = node
-
-	if ls.Tail == nil {
-		ls.Head = nil
-	}
 
 	return tail
 }
