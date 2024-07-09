@@ -29,9 +29,8 @@ func findPartition(arr *[]int, low, high int) int {
 		}
 	}
 
-	temp := (*arr)[low]
 	(*arr)[low] = (*arr)[j]
-	(*arr)[j] = temp
+	(*arr)[j] = pivot
 
 	return j
 }

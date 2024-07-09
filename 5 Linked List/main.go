@@ -1,13 +1,12 @@
 package main
 
 import (
-	"fmt"
 	ll "linked_list/1_DS/Singly_Linked_List"
 	mediumproblemsofll "linked_list/2_Medium_Problems_of_LL"
 )
 
 func main() {
-	arr := []interface{}{1, 2, 3, 2, 1}
+	arr := []interface{}{1, 0, 1, 2, 0, 2, 1}
 	ls := ll.ConvertArrayToLL(arr)
 
 	// Question 1
@@ -77,7 +76,34 @@ func main() {
 	// fmt.Println(mediumproblemsofll.FindLengthOfLoop_Optimal(loopLs))
 
 	// Question 6
-	fmt.Println(mediumproblemsofll.IsListPalindrome_Brute(ls))
-	fmt.Println(mediumproblemsofll.IsListPalindrome_Optimal(ls))
-	ls.Print()
+	// fmt.Println(mediumproblemsofll.IsListPalindrome_Brute(ls))
+	// fmt.Println(mediumproblemsofll.IsListPalindrome_Optimal(ls))
+	// ls.Print()
+
+	// Question 7
+	// mediumproblemsofll.SegregateEvenAndOdd_Brute(ls)
+	// head := mediumproblemsofll.SegregateEvenAndOdd_Optimal(ls)
+	// ll.NewList(head).Print()
+
+	// Question 8
+	// fmt.Println(mediumproblemsofll.RemoveNthNodeFromEnd_Brute(ls, 2))
+	// fmt.Println(mediumproblemsofll.RemoveNthNodeFromEnd_Optimal(ls, 5))
+	// ls.Print()
+
+	// Question 9
+	// fmt.Println(mediumproblemsofll.RemoveMiddleElement_Brute(ls))
+	// fmt.Println(mediumproblemsofll.RemoveMiddleElement_Optimal(ls))
+	// ls.Print()
+
+	// Question 10
+	// mediumproblemsofll.MergeSortLL_Brute(ls)
+	// mediumproblemsofll.QuickSortLL_Brute(ls)
+	// mediumproblemsofll.MergeSortLL_Optimal(ls)
+	// ls.Print()
+
+	// Question 11
+	// mediumproblemsofll.Sort012LL_Brute(ls)
+	// ls.Print()
+	ll.NewList(mediumproblemsofll.Sort012LL_Optimal(ls)).Print()
+
 }
