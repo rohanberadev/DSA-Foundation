@@ -63,4 +63,10 @@ func mergeSortLL(head *ll.Node) *ll.Node {
 
 func MergeSortLL_Optimal(ls *ll.LinkedList) {
 	ls.Head = mergeSortLL(ls.Head)
+
+	for node := ls.Head; node != nil; node = node.Next {
+		if node.Next == nil {
+			ls.Tail = node
+		}
+	}
 }

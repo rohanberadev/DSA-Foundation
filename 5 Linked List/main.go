@@ -1,10 +1,6 @@
 package main
 
-import (
-	"fmt"
-	dll "linked_list/1_DS/Doubly_Linked_List"
-	mediumproblemsofdll "linked_list/3_Medium_Problems_of_DLL"
-)
+import hardproblemsofll "linked_list/4_Hard_Problems_of_LL"
 
 func main() {
 	// arr := []interface{}{9, 9, 8}
@@ -152,8 +148,47 @@ func main() {
 	// dls.Print()
 
 	// Question 16
-	dls := dll.ConvertArrayToDLL([]interface{}{1, 2, 3, 4, 9})
-	fmt.Println(mediumproblemsofdll.FindSumPairsDLL_Brute(dls, 5))
-	fmt.Println(mediumproblemsofdll.FindSumPairsDLL_Hashing(dls, 5))
-	fmt.Println(mediumproblemsofdll.FindSumPairsDLL_Optimal(dls, 5))
+	// dls := dll.ConvertArrayToDLL([]interface{}{1, 2, 3, 4, 9})
+	// fmt.Println(mediumproblemsofdll.FindSumPairsDLL_Brute(dls, 5))
+	// fmt.Println(mediumproblemsofdll.FindSumPairsDLL_Hashing(dls, 5))
+	// fmt.Println(mediumproblemsofdll.FindSumPairsDLL_Optimal(dls, 5))
+
+	// Question 17
+	// dls := dll.ConvertArrayToDLL([]interface{}{1, 2, 2, 4, 4, 5})
+	// mediumproblemsofdll.RemoveDuplicatesLL_Hashing(dls)
+	// mediumproblemsofdll.RemoveDuplicatesLL_Optimal(dls)
+	// dls.Print()
+
+	// Question 18
+	// ls := ll.ConvertArrayToLL([]interface{}{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12})
+	// hardproblemsofll.ReverseGivenSizeLL(ls, 3)
+	// ls.Print()
+
+	// Question 19
+	// ls := ll.ConvertArrayToLL([]interface{}{1, 2, 3, 4, 5})
+	// hardproblemsofll.RotateLeftLL_Brute(ls, 1)
+	// hardproblemsofll.RotateRightLL_Brute(ls, 3)
+	// hardproblemsofll.RotateLeftLL_Optimal(ls, 1)
+	// hardproblemsofll.RotateRightLL_Optimal(ls, 4)
+	// ls.Print()
+
+	// Question 20
+	head := hardproblemsofll.NewNodeWithChild(3, nil, nil)
+	head.Next = hardproblemsofll.NewNodeWithChild(2, nil, nil)
+	head.Next.Child = hardproblemsofll.NewNodeWithChild(10, nil, nil)
+
+	head.Next.Next = hardproblemsofll.NewNodeWithChild(1, nil, nil)
+	head.Next.Next.Child = hardproblemsofll.NewNodeWithChild(7, nil, nil)
+	head.Next.Next.Child.Child = hardproblemsofll.NewNodeWithChild(11, nil, nil)
+	head.Next.Next.Child.Child.Child = hardproblemsofll.NewNodeWithChild(12, nil, nil)
+
+	head.Next.Next.Next = hardproblemsofll.NewNodeWithChild(4, nil, nil)
+	head.Next.Next.Next.Child = hardproblemsofll.NewNodeWithChild(9, nil, nil)
+
+	head.Next.Next.Next.Next = hardproblemsofll.NewNodeWithChild(5, nil, nil)
+	head.Next.Next.Next.Next.Child = hardproblemsofll.NewNodeWithChild(6, nil, nil)
+	head.Next.Next.Next.Next.Child.Child = hardproblemsofll.NewNodeWithChild(8, nil, nil)
+
+	// hardproblemsofll.FlattenLL_Brute(head).Print()
+	hardproblemsofll.PrintNodeWithChild(hardproblemsofll.FlattenLL_Optimal(head))
 }
