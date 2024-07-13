@@ -4,7 +4,7 @@ import (
 	"math"
 )
 
-func AllocateBooks(arr []int, m, pages int) int {
+func AllocateBooks(arr []int, pages int) int {
 	students := 1
 	noOfPages := 0
 	for i := 0; i < len(arr); i++ {
@@ -36,7 +36,7 @@ func AllocateMinNumOfPages_Brute(arr []int, m int) int {
 	}
 
 	for pages := low; pages <= high; pages++ {
-		if AllocateBooks(arr, m, pages) == m {
+		if AllocateBooks(arr, pages) == m {
 			return pages
 		}
 	}
@@ -62,7 +62,7 @@ func AllocateMinNumOfPages_Optimal(arr []int, m int) int {
 	for low <= high {
 		mid := (low + high) / 2
 
-		if AllocateBooks(arr, m, mid) > m {
+		if AllocateBooks(arr, mid) > m {
 			low = mid + 1
 
 		} else {

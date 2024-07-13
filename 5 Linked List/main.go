@@ -173,22 +173,39 @@ func main() {
 	// ls.Print()
 
 	// Question 20
-	head := hardproblemsofll.NewNodeWithChild(3, nil, nil)
-	head.Next = hardproblemsofll.NewNodeWithChild(2, nil, nil)
-	head.Next.Child = hardproblemsofll.NewNodeWithChild(10, nil, nil)
+	// head := hardproblemsofll.NewNodeWithChild(3, nil, nil)
+	// head.Next = hardproblemsofll.NewNodeWithChild(2, nil, nil)
+	// head.Next.Child = hardproblemsofll.NewNodeWithChild(10, nil, nil)
 
-	head.Next.Next = hardproblemsofll.NewNodeWithChild(1, nil, nil)
-	head.Next.Next.Child = hardproblemsofll.NewNodeWithChild(7, nil, nil)
-	head.Next.Next.Child.Child = hardproblemsofll.NewNodeWithChild(11, nil, nil)
-	head.Next.Next.Child.Child.Child = hardproblemsofll.NewNodeWithChild(12, nil, nil)
+	// head.Next.Next = hardproblemsofll.NewNodeWithChild(1, nil, nil)
+	// head.Next.Next.Child = hardproblemsofll.NewNodeWithChild(7, nil, nil)
+	// head.Next.Next.Child.Child = hardproblemsofll.NewNodeWithChild(11, nil, nil)
+	// head.Next.Next.Child.Child.Child = hardproblemsofll.NewNodeWithChild(12, nil, nil)
 
-	head.Next.Next.Next = hardproblemsofll.NewNodeWithChild(4, nil, nil)
-	head.Next.Next.Next.Child = hardproblemsofll.NewNodeWithChild(9, nil, nil)
+	// head.Next.Next.Next = hardproblemsofll.NewNodeWithChild(4, nil, nil)
+	// head.Next.Next.Next.Child = hardproblemsofll.NewNodeWithChild(9, nil, nil)
 
-	head.Next.Next.Next.Next = hardproblemsofll.NewNodeWithChild(5, nil, nil)
-	head.Next.Next.Next.Next.Child = hardproblemsofll.NewNodeWithChild(6, nil, nil)
-	head.Next.Next.Next.Next.Child.Child = hardproblemsofll.NewNodeWithChild(8, nil, nil)
+	// head.Next.Next.Next.Next = hardproblemsofll.NewNodeWithChild(5, nil, nil)
+	// head.Next.Next.Next.Next.Child = hardproblemsofll.NewNodeWithChild(6, nil, nil)
+	// head.Next.Next.Next.Next.Child.Child = hardproblemsofll.NewNodeWithChild(8, nil, nil)
 
 	// hardproblemsofll.FlattenLL_Brute(head).Print()
-	hardproblemsofll.PrintNodeWithChild(hardproblemsofll.FlattenLL_Optimal(head))
+	// hardproblemsofll.PrintNodeWithChild(hardproblemsofll.FlattenLL_Optimal(head))
+
+	// Question 21
+	head := hardproblemsofll.NewRandomNode(7, nil, nil)
+	head.Next = hardproblemsofll.NewRandomNode(13, nil, nil)
+	head.Next.Next = hardproblemsofll.NewRandomNode(11, nil, nil)
+	head.Next.Next.Next = hardproblemsofll.NewRandomNode(10, nil, nil)
+	head.Next.Next.Next.Next = hardproblemsofll.NewRandomNode(1, nil, nil)
+
+	head.Random = nil
+	head.Next.Random = head
+	head.Next.Next.Random = head.Next.Next.Next.Next
+	head.Next.Next.Next.Random = head.Next.Next
+	head.Next.Next.Next.Next.Random = head
+
+	hardproblemsofll.PrintRandomNode(head)
+	// hardproblemsofll.PrintRandomNode(hardproblemsofll.CloneRandomNode_Brute(head))
+	hardproblemsofll.PrintRandomNode(hardproblemsofll.CloneRandomNode_Optimal(head))
 }

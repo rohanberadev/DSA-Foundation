@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	array2d "myBinarySearch/array2D"
+	arrayans "myBinarySearch/arrayAns"
 )
 
 func main() {
-	// arr := []int{1, 13, 17, 23}
+	arr := []int{12, 34, 67, 90}
 
 	// Question 1
 	// fmt.Println(array1d.BinarySearchIterative(arr, 6))
@@ -96,7 +96,7 @@ func main() {
 
 	// Question 22
 	// fmt.Println(arrayans.AllocateMinNumOfPages_Brute(arr, 2))
-	// fmt.Println(arrayans.AllocateMinNumOfPages_Optimal(arr, 2))
+	fmt.Println(arrayans.AllocateMinNumOfPages_Optimal(arr, 2))
 
 	// Question 23
 	// fmt.Println(arrayans.SplitArrayLargestSum_Brute(arr, 3))
@@ -151,11 +151,11 @@ func main() {
 	// fmt.Println(array2d.FindPeak2D_Optimal(mat))
 
 	// Question 32
-	mat := [][]int{
-		{1, 2, 3, 4, 5},
-		{8, 9, 11, 12, 13},
-		{21, 23, 25, 27, 29},
-	}
-	fmt.Println(array2d.FindMedianInRowWiseSortedMat_Brute(mat))
-	fmt.Println(array2d.FindMedianInRowWiseSortedMat_Optimal(mat))
+	// mat := [][]int{
+	// 	{1, 2, 3, 4, 5},
+	// 	{8, 9, 11, 12, 13},
+	// 	{21, 23, 25, 27, 29},
+	// }
+	// fmt.Println(array2d.FindMedianInRowWiseSortedMat_Brute(mat))
+	// fmt.Println(array2d.FindMedianInRowWiseSortedMat_Optimal(mat))
 }

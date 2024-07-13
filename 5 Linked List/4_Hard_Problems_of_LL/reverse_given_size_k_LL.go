@@ -50,6 +50,7 @@ func ReverseGivenSizeLL(ls *ll.LinkedList, k int) {
 
 		if node == ls.Head {
 			ls.Head = kThNode
+
 		} else {
 			prevLast.Next = kThNode
 		}
@@ -59,13 +60,9 @@ func ReverseGivenSizeLL(ls *ll.LinkedList, k int) {
 	}
 
 	// setting tail.
-	if prevLast.Next != nil {
-		for node := prevLast; node != nil; node = node.Next {
-			if node.Next != nil {
-				ls.Tail = node
-			}
+	for node := ls.Head; node != nil; node = node.Next {
+		if node.Next == nil {
+			ls.Tail = node
 		}
-	} else {
-		ls.Tail = prevLast
 	}
 }
