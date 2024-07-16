@@ -1,47 +1,64 @@
 package stronghold
 
-var num int
-var sign int = 1
+import "math"
 
-func checkIfNum(b byte) bool {
+func checkForNum(b byte) bool {
 	return b >= '0' && b <= '9'
-}
-
-func checkSign(b byte) bool {
-	return b == '-' || b == '+'
 }
 
 func Atoi_Recursive(s string) int {
 	n := len(s)
-
-	if len(s) == 0 {
-		return 0
+	if n == 1 {
+		return int(s[0] - '0')
 	}
 
-	if s[0] != ' ' && !checkSign(s[0]) && !checkIfNum(s[0]) {
-		return num
+	smallAns := Atoi_Recursive(s[1:n])
+
+	a := int(s[0] - '0')
+
+	return smallAns + a*10
+}
+
+// Medium
+func Atoi_Iterative(s string) int {
+	index := 0
+
+	for index < len(s) && s[index] == ' ' {
+		index++
 	}
 
-	if s[0:1] == " " {
-		s = s[1:n]
+	s = s[index:]
 
-	} else if checkIfNum(s[0]) {
-		num *= 10
-		num += int(s[0] - '0')
-		s = s[1:n]
+	sign := +1
+	num := 0
+	MIN := math.MinInt32
+	MAX := math.MaxInt32
 
-	} else if num == 0 && s[0] == '-' {
-		sign *= -1
-		s = s[1:n]
+	if s[0] == '-' {
+		sign = -1
+		s = s[1:]
 
 	} else if s[0] == '+' {
-		s = s[1:n]
-
-	} else {
-		return num
+		s = s[1:]
 	}
 
-	Atoi_Recursive(s)
+	n := len(s)
+
+	for i := 0; i < n; i++ {
+		if s[i] == ' ' || !checkForNum(s[i]) {
+			break
+		}
+
+		num *= 10
+		num += int(s[i] - '0')
+
+		if sign*num < MIN {
+			return MIN
+		}
+		if sign*num > MAX {
+			return MAX
+		}
+	}
 
 	return num * sign
 }

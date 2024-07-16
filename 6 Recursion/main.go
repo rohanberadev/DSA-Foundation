@@ -1,6 +1,7 @@
 package main
 
 import (
+	stronghold "Recursion/1_Strong_Hold"
 	ds "Recursion/DS"
 )
 
@@ -51,11 +52,33 @@ func main() {
 	// fmt.Println(stronghold.CountGoodNumbers_Recursive_Brute(50))
 	// fmt.Println(stronghold.CountGoodNumbers_Recursive_Optimal(50))
 
-	stack := ds.NewStack()
-	stack.Push(1)
-	stack.Push(2)
-	stack.Push(3)
-	stack.Push(4)
-	stack.Push(5)
+	// Question 12
+	// fmt.Println(stronghold.Atoi_Recursive("45"))
+	// fmt.Println(stronghold.Atoi_Iterative("1337c0d3"))
 
+	// Question 13
+	// st := ds.NewStack()
+	// st.Push(3)
+	// st.Push(1)
+	// st.Push(4)
+	// st.Push(2)
+
+	// stronghold.SortStack_Recursive(st)
+	// st.Print()
+
+	// Question 14
+	st := ds.NewStack()
+	st.Push(4)
+	st.Push(3)
+	st.Push(2)
+	st.Push(1)
+
+	// ans := ds.NewStack()
+
+	st.Print()
+	// stronghold.ReverseStack_Recursive_Brute(st, ans)
+	// ans.Print()
+
+	stronghold.ReverseStack_Recursive_Optimal(st)
+	st.Print()
 }

@@ -2,74 +2,94 @@ package ds
 
 import "fmt"
 
-type element struct {
-	data int
-	next *element
+type stackframe struct {
+	data interface{}
+	next *stackframe
 }
 
-func newElement(data int) *element {
-	return &element{data: data, next: nil}
+func newStackFrame(data interface{}) *stackframe {
+	return &stackframe{data: data, next: nil}
 }
 
 type Stack struct {
-	first *element
-	peek  *element
+	root *stackframe
+	top  *stackframe
+	size int
 }
 
 func NewStack() *Stack {
-	return &Stack{first: nil, peek: nil}
+	return &Stack{root: nil, top: nil, size: 0}
 }
 
-func (st *Stack) Push(data int) {
-	if st.IsEmpty() {
-		st.peek = newElement(data)
-		st.first = st.peek
-
-	} else {
-		newElem := newElement(data)
-		st.peek.next = newElem
-		st.peek = newElem
-	}
+func (st *Stack) Empty() bool {
+	return st.top == nil
 }
 
-func (st *Stack) Pop() int {
-	if st.IsEmpty() {
-		panic("empty stack! nothing to delete.")
-	}
-
-	if st.first.next == nil {
-		delElem := st.peek
-		st.peek = nil
-		st.first = nil
-		return delElem.data
-	}
-
-	elem := st.first
-	for elem.next.next != nil {
-		elem = elem.next
-	}
-
-	delElem := elem.next
-	elem.next = nil
-	st.peek = elem
-
-	return delElem.data
+func (st *Stack) Size() int {
+	return st.size
 }
 
-func (st *Stack) Peek() int {
-	if st.IsEmpty() {
-		panic("empty stack! there is no peek.")
+func (st *Stack) Push(data interface{}) {
+	st.size++
+	if st.Empty() {
+		st.top = newStackFrame(data)
+		st.root = st.top
+		return
 	}
-	return st.peek.data
+
+	st.top.next = newStackFrame(data)
+	st.top = st.top.next
 }
 
-func (st *Stack) IsEmpty() bool {
-	return st.peek == nil
+func (st *Stack) Pop() interface{} {
+	if st.Empty() {
+		fmt.Println("Stack is Empty.")
+		return nil
+	}
+
+	st.size--
+
+	if st.root.next == nil {
+		data := st.top.data
+		st.top = nil
+		st.root = nil
+		return data
+	}
+
+	sf := st.root
+	for sf.next != st.top {
+		sf = sf.next
+	}
+
+	data := st.top.data
+	sf.next = nil
+	st.top = sf
+
+	return data
+}
+
+func (st *Stack) Peek() interface{} {
+	return st.top.data
+}
+
+func (st *Stack) Reverse() {
+	sf := st.root
+	var prev *stackframe
+
+	for sf != nil {
+		next := sf.next
+		sf.next = prev
+		prev = sf
+		sf = next
+	}
+
+	st.top = st.root
+	st.root = prev
 }
 
 func (st *Stack) Print() {
-	for e := st.first; e != nil; e = e.next {
-		fmt.Printf("%v ", e.data)
+	for sf := st.root; sf != nil; sf = sf.next {
+		fmt.Printf("%v ", sf.data)
 	}
 	fmt.Print("\n")
 }
