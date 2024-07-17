@@ -6,13 +6,13 @@ func checkForNum(b byte) bool {
 	return b >= '0' && b <= '9'
 }
 
-func Atoi_Recursive(s string) int {
+func AtoiEasy_Recursive(s string) int {
 	n := len(s)
 	if n == 1 {
 		return int(s[0] - '0')
 	}
 
-	smallAns := Atoi_Recursive(s[1:n])
+	smallAns := AtoiEasy_Recursive(s[1:n])
 
 	a := int(s[0] - '0')
 

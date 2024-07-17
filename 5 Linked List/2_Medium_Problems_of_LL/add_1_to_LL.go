@@ -21,8 +21,8 @@ func add1Recursive(head *ll.Node) int {
 	}
 
 	carry := add1Recursive(head.Next)
-	sum := head.Data.(int) + carry
 
+	sum := head.Data.(int) + carry
 	if head.Data.(int) == 9 && carry > 0 {
 		head.Data = sum % 10
 		carry := sum / 10
