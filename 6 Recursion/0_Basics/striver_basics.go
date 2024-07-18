@@ -1,6 +1,9 @@
 package basics
 
-import "fmt"
+import (
+	ds "Recursion/DS"
+	"fmt"
+)
 
 /* Part - 1 */
 
@@ -167,4 +170,22 @@ func Fibonacci_Optimal(n int) int {
 		fib[i] = -1
 	}
 	return fib_memoize(n)
+}
+
+/* Part-5 */
+// Time :- O(2^N * N) Space :- O(N)
+func SubsequenceTheory(ind int, ans *ds.List, arr []int, n int) {
+	if ind >= n {
+		// Time :- O(N)
+		ans.Print()
+		return
+	}
+
+	// take or pick the particular element in the subsequence.
+	ans.Push_back(arr[ind])
+	SubsequenceTheory(ind+1, ans, arr, n)
+
+	// don't take or pick the particular element in the subsequence.
+	ans.Pop_Back()
+	SubsequenceTheory(ind+1, ans, arr, n)
 }

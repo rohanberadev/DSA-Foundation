@@ -1,7 +1,7 @@
 package main
 
 import (
-	basics "Recursion/0_Basics"
+	subsequencepattern "Recursion/2_Subsequence_Pattern"
 	"fmt"
 	"time"
 )
@@ -74,7 +74,10 @@ func main() {
 
 	// Question 14
 	// fmt.Println(basics.Fibonacci_Brute(120))
-	fmt.Println(basics.Fibonacci_Optimal(120))
+	// fmt.Println(basics.Fibonacci_Optimal(120))
+
+	// Question 15
+	// basics.SubsequenceTheory(0, ds.NewList(), []int{3, 1, 2}, 3)
 
 	/* Strong Hold*/
 
@@ -120,11 +123,38 @@ func main() {
 	// stronghold.ReverseStack_Recursive_Optimal(st)
 	// st.Print()
 
-	// Question 7
+	/* Subsequence Pattern */
+
+	// Question 1
 	// subsequencepattern.GenerateBinaryStrings(3)
 
-	// Question 8
+	// Question 2
 	// fmt.Println(subsequencepattern.GenerateParathesis(3))
+
+	// Question 3
+	// arr := []int{3, 1, 2}
+	// subsequencepattern.PrintAllSubsequences_Recursive(0, len(arr), arr, ds.NewList())
+	// subsequencepattern.PrintAllSubsequences_PowerSet(arr, len(arr))
+
+	// Question 4
+	// arr := []int{1, 2, 1}
+	// subsequencepattern.PrintSubsequence_Sum_K_Recursive(0, len(arr), make([]int, 0, len(arr)), arr, 0, 2)
+	// subsequencepattern.PrintSubsequence_Sum_K_PowerSet(arr, len(arr), 2)
+
+	// Question 5
+	// arr := []int{1, 2, 1}
+	// subsequencepattern.PrintAnyOneSubsequenceOfGivenSumK_Recursive(0, len(arr), make([]int, 0, len(arr)), arr, 0, 2)
+
+	// Question 6
+	// arr := []int{1, 2, 1}
+	// count := subsequencepattern.CountSubsequencesOfGivenSumK_Recursive(0, len(arr), arr, 0, 2)
+	// fmt.Println(count)
+
+	// Question 7
+	arr := []int{1, 2, 3}
+	// ans := subsequencepattern.PrintAllPermutations_MapTechnique(arr, make([]int, 0, len(arr)), make([]bool, len(arr)), len(arr))
+	ans := subsequencepattern.PrintAllPermutations_PointersTechnique(arr, 0, len(arr))
+	fmt.Println(ans)
 
 	elapsed := time.Since(start).Milliseconds()
 	fmt.Printf("\nTime taken: %v ms\n", elapsed)
