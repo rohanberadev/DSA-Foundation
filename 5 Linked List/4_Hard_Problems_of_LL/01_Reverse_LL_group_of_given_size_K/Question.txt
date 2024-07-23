@@ -1,0 +1,17 @@
+Reverse Linked List in groups of Size K
+
+Problem Statement: Given the head of a singly linked list of `n` nodes and an integer `k`, where k is less than or equal to `n`. Your task is to reverse the order of each group of `k` consecutive nodes, if `n` is not divisible by `k`, then the last group of remaining nodes should remain unchanged.
+
+Example 1:
+
+Input Format:
+
+LL: 1  2  3  4  5  6  7  8  9  10
+K = 3
+
+Explanation:
+
+Group 1: Reverse nodes 1 -> 2 -> 3 to become 3 -> 2 -> 1.
+Group 2: Reverse nodes 4 -> 5 -> 6 to become 6 -> 5 -> 4.
+Group 3: Reverse nodes 7 -> 8 -> 9 to become 9 -> 8 -> 7.
+Node 10 remains as is since there are no more groups of size K remaining.
