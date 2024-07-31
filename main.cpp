@@ -2,6 +2,11 @@
 #include <fstream>
 using namespace std;
 
+int fibonacci(int n) {
+  if (n <= 1) return n;
+  return fibonacci(n-1) + fibonacci(n-2);
+} 
+
 int main() {
   
   ifstream infile("inputf.in");
@@ -26,7 +31,7 @@ int main() {
       return 1;
   }
 
-  cout << n;
+  cout << fibonacci(n);
 
   cout.rdbuf(coutbuf);
 
@@ -34,4 +39,4 @@ int main() {
   outfile.close();
 
   return 0;
-}
+} 
