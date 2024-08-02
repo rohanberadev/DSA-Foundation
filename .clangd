@@ -1,0 +1,6 @@
+CompileFlags:
+  Add: [	
+	-std=c++17,
+	-I/usr/include/c++/x86_64-linux-gnu,
+	-I/usr/include
+	]
