@@ -1,0 +1,6 @@
+element: 1 current size: 6
+element: 2 current size: 5
+element: 3 current size: 4
+element: 4 current size: 3
+element: 5 current size: 2
+element: 6 current size: 1

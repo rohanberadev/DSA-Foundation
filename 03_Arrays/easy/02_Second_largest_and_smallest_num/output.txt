@@ -1,0 +1,2 @@
+Second Largest Number: 5
+Second Largest Number: 2

@@ -3,6 +3,22 @@
 #include <streambuf>
 using namespace std;
 
+int removeDuplicates(vector<int> &arr) {
+  set<int> s;
+  int n = arr.size();
+
+  for (int i = 0; i < n; i++) {
+    s.insert(arr[i]); 
+  }  
+  
+  int j = 0;
+  for (int x : s) {
+    arr[j++] = x;
+  }
+
+  return j;
+} 
+
 int main() {
   ifstream infile("input.txt");
   if (!infile.is_open()) {
@@ -22,6 +38,18 @@ int main() {
   streambuf* coutbuf = cout.rdbuf();
   cout.rdbuf(outfile.rdbuf());
   
+  int size;
+  cin >> size;
+  
+  vector<int> arr(size);
+  for (int i = 0; i < size; i++) {
+    cin >> arr[i];
+  }
+
+  int n = removeDuplicates(arr);
+  for (int i = 0; i < n; i++) {
+    cout << arr[i] << " ";
+  }
 
   cin.rdbuf(cinbuf);
   cout.rdbuf(coutbuf);
