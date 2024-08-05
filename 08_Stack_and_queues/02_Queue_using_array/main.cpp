@@ -15,19 +15,31 @@ class Queue {
     Queue(int s) {
       maxSize = s;
       start = -1;
-      end = 0;
+      end = -1;
       currSize = 0;
 
       ds = new int[maxSize];
     }
 
     bool empty() {
-      return start == -1 || start == end;
+      return currSize == 0;
     }
 
-    void push(int x) {
-      if (start == -1) start++;
-      ds[end++] = x;
+    void push(int x) { 
+      if (currSize == maxSize) {
+        cerr << "Capacity is fulled!";
+        exit(1);
+      }
+      
+      if (currSize == 0) {
+        start = 0;
+        end = 0;
+        ds[end] = x;
+      } 
+      else {
+        end = (end + 1) % maxSize;
+        ds[end] = x;
+      }
       currSize++;
     }
 
@@ -36,8 +48,9 @@ class Queue {
         cerr << "Queue is empty. Nothing to pop!";
         exit(1);
       }
-      
-      start++;
+
+      if (currSize == 1) start = end = -1;
+      else start = (start + 1) % maxSize;
       currSize--;
     }
 

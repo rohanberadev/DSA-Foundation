@@ -3,53 +3,55 @@
 #include <streambuf>
 using namespace std;
 
+struct Node {
+  int data;
+  Node* next;
+
+  // constructor
+  Node(int data, Node* next = nullptr) : data(data), next(next) {}
+};
+
 class Stack {
   private:
-    int* ds;
-    int top;
-    int maxSize;
+    Node* top;
+    int currSize;
 
   public:
-    Stack(int size) {
-      top = -1;
-      maxSize = size;
-      ds = new int[maxSize];
-    }
-
-    void push(int x) {
-      if (top >= maxSize) {
-        cerr << "Size exceeded!";
-        exit(1);
-      } 
-      ds[++top] = x;
-    }
-
-    void pop() {
-      if (top == -1) {
-        cerr << "Stack is empty!";
-        exit(1);
-      }
-      top--;
+    Stack() {
+      top = nullptr;
+      currSize = 0;
     }
 
     bool empty() {
-      return top == -1;
+      return top == nullptr;
+    }
+
+    void push(int x) {
+      Node* node = new Node(x);
+      node->next = top;
+      top = node;
+      currSize++;
+    }
+
+    void pop() {
+      if (top == nullptr) {
+        cerr << "Stack is empty. Nothing to delete!";
+        exit(1);
+      }
+      top = top->next;
+      currSize--;
     }
 
     int size() {
-      return top + 1;
+      return currSize;
     }
 
     int peek() {
-      return ds[top];
-    }
-
-    int getSize() {
-      return top + 1;
-    }
-
-    void print() {
-      for (int i = 0; i <= top; i++) cout << ds[i] << " "; 
+      if (empty()) {
+        cerr << "Stack is empty. Nothing to peek!";
+        exit(1);
+      }
+      return top->data;
     }
 };
 
@@ -71,11 +73,11 @@ int main() {
   
   streambuf* coutbuf = cout.rdbuf();
   cout.rdbuf(outfile.rdbuf());
- 
+  
   int n;
   cin >> n;
   
-  Stack st(1000);
+  Stack st;
 
   for (int i = 0; i < n; i++) {
     int x;
