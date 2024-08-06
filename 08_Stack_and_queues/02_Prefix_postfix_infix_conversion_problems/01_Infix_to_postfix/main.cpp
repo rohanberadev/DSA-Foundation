@@ -3,17 +3,18 @@
 #include <streambuf>
 using namespace std;
 
-int getPriority(char op) {
-  if (op == '^') return 3;
-  else if (op == '*' || op == '/') return 2;
-  else if (op == '+' || op == '-') return 1;
-  else return -1;
+int getPriority(char c) {
+  if (c == '^') return 3;
+  else if (c == '*' || c == '/') return 2;
+  else if (c == '+' || c == '-') return 1;
+  else return 0;
 }
 
 string infixToPostfix(string infix) {
   int n = infix.size();
-  stack<char> st;
   
+  stack<int> st;
+
   string postfix = "";
 
   for (int i = 0; i < n; i++) {
@@ -33,21 +34,20 @@ string infixToPostfix(string infix) {
     }
 
     else {
-      while (!st.empty() && getPriority(c) <= getPriority(st.top())) {
+      while (!st.empty() && getPriority(st.top()) >= getPriority(c)) {
         postfix += st.top();
         st.pop();
       }
 
       st.push(c);
     }
-    
   }
 
   while (!st.empty()) {
     postfix += st.top();
     st.pop();
   }
-    
+
   return postfix;
 }
 
