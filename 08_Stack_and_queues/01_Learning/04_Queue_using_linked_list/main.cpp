@@ -3,42 +3,60 @@
 #include <streambuf>
 using namespace std;
 
-struct Node {
-  int data;
-  Node* next;
-
-  // constructor
-  Node(int data, Node* next = nullptr) : data(data), next(next) {}
-};
-
-class Stack {
+class Queue {
   private:
-    Node* top;
+    struct Node {
+      int data;
+      Node* next;
+
+      // constructor
+      Node(int data, Node* next = nullptr) : data(data), next(next) {}
+    };
+
+    Node* start;
+    Node* end;
     int currSize;
 
   public:
-    Stack() {
-      top = nullptr;
+    Queue() {
+      start = nullptr;
+      end = nullptr;
       currSize = 0;
     }
 
     bool empty() {
-      return top == nullptr;
+      return start == nullptr && end == nullptr;
     }
 
     void push(int x) {
-      Node* node = new Node(x);
-      node->next = top;
-      top = node;
+      if (empty()) {
+        start = new Node(x);
+        end = start;
+      }
+      else {
+        end->next = new Node(x);
+        end = end->next;
+      }
       currSize++;
     }
 
     void pop() {
-      if (top == nullptr) {
-        cerr << "Stack is empty. Nothing to delete!";
+      if (empty()) {
+        cerr << "Queue is empty. Nothing to delete!";
         exit(1);
       }
-      top = top->next;
+
+      if (start == end) {
+        Node* delNode = start;
+        delete delNode;
+        start = nullptr;
+        end = nullptr;
+      }
+      else {
+        Node* delNode = start;
+        start = start->next;
+        delete delNode;
+      }
       currSize--;
     }
 
@@ -48,10 +66,10 @@ class Stack {
 
     int peek() {
       if (empty()) {
-        cerr << "Stack is empty. Nothing to peek!";
+        cerr << "Queue is empty. Nothing to peek!";
         exit(1);
       }
-      return top->data;
+      return start->data;
     }
 };
 
@@ -77,17 +95,17 @@ int main() {
   int n;
   cin >> n;
   
-  Stack st;
+  Queue q;
 
   for (int i = 0; i < n; i++) {
     int x;
     cin >> x;
-    st.push(x);
+    q.push(x);
   }
 
-  while (!st.empty()) {
-    cout << st.peek() << " ";
-    st.pop();
+  while (!q.empty()) {
+    cout << q.peek() << " ";
+    q.pop();
   }
 
   cin.rdbuf(cinbuf);

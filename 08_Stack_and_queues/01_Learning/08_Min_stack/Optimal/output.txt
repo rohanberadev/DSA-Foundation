@@ -1,0 +1,5 @@
+Top: 0 Min: 0
+Top: 1 Min: 1
+Top: 3 Min: 2
+Top: 2 Min: 2
+Top: 9 Min: 9
