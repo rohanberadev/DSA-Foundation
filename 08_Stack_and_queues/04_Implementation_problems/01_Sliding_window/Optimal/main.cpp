@@ -16,7 +16,6 @@ vector<int> maxSlidingWindow(vector<int>& arr, int k) {
 
     if (i >= k-1) maxNums.push_back(arr[dq.front()]); 
   }
-  
 
   return maxNums;
 }

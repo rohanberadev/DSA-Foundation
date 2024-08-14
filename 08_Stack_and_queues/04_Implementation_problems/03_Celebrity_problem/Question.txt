@@ -1,0 +1,5 @@
+In n x n matrix find a celebrity.
+
+The celebrity should be known by everyone and he/she should not know anyone.
+
+Row of the matrix shows the person knows the column index (person).
