@@ -1,11 +1,9 @@
 #include <bits/stdc++.h>
 #include <fstream>
 #include <streambuf>
-#include <vector>
 using namespace std;
 
-void permute(vector<vector<int>> &ans, vector<int> &arr, vector<int> &ds,
-             vector<bool> &freq, int n) {
+void permute(vector<vector<int>> &ans, vector<int> &arr, vector<int> &ds, vector<bool> &freq, int n) {
   if (ds.size() == n) {
     vector<int> res;
     for (auto it : ds)
@@ -39,20 +37,19 @@ int array2Int(vector<int> arr) {
 
 vector<int> nextPermutation(vector<int> arr) {
   int n = arr.size();
+  
+  int num = array2Int(arr);
+
   sort(arr.begin(), arr.end());
   vector<vector<int>> perm;
   vector<int> ds;
   vector<bool> freq(n, false);
   permute(perm, arr, ds, freq, n);
 
-  int num = array2Int(arr);
+  for (vector<int> it : perm) cout << array2Int(it) << endl;
 
-  for (auto it : perm)
-    cout << array2Int(it) << endl;
-
-  for (auto it : perm) {
-    if (num < array2Int(it))
-      return it;
+  for (vector<int> it : perm) {
+    if (num < array2Int(it)) return it;
   }
 
   return perm[0];
@@ -86,7 +83,7 @@ int main() {
   }
 
   vector<int> nextPerm = nextPermutation(arr);
-  for (auto it : nextPerm)
+  for (int it : nextPerm)
     cout << it << " ";
 
   cin.rdbuf(cinbuf);
