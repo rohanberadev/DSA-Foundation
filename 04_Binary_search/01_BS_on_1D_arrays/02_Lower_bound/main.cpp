@@ -20,3 +20,6 @@ int lowerBound(vector<int> arr, int target) {
 
   return ind;
 }
+
+// Link -
+// https://bit.ly/3Cf398N

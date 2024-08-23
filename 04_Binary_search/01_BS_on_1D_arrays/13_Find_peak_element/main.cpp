@@ -36,3 +36,6 @@ int findPeakElement(vector<int> &arr) {
 
   return -1;
 }
+
+// Link -
+// https://leetcode.com/problems/find-peak-element/

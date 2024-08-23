@@ -42,3 +42,6 @@ int NthRoot(int n, int m) {
 
   return ans;
 }
+
+// Link -
+// https://bit.ly/3zWNyrL

@@ -48,3 +48,6 @@ int minEatingSpeed(vector<int> &piles, int h) {
 
   return low;
 }
+
+// Link -
+// https://leetcode.com/problems/koko-eating-bananas/

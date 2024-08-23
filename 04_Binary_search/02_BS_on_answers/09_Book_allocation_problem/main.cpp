@@ -58,3 +58,6 @@ int findPages(vector<int> &arr, int n, int m) {
 
   return low;
 }
+
+// Link -
+// https://www.naukri.com/code360/problems/allocate-books_1090540?utm_source=youtube&utm_medium=affiliate&utm_campaign=codestudio_Striver_BinarySeries

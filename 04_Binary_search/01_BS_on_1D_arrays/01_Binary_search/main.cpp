@@ -20,3 +20,6 @@ int binarySearch(vector<int> arr, int target) {
 
   return -1;
 }
+
+// Link -
+// https://leetcode.com/problems/binary-search/

@@ -20,3 +20,6 @@ long long int floorSqrt(long long int n) {
 
   return ans;
 }
+
+// Link -
+// https://bit.ly/3JXtGcE

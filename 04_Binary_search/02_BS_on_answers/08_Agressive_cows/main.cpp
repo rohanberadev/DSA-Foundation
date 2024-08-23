@@ -42,3 +42,6 @@ int agressiveCows(vector<int> &stalls, int k) {
 
   return high;
 }
+
+// Link -
+// https://www.spoj.com/problems/AGGRCOW/

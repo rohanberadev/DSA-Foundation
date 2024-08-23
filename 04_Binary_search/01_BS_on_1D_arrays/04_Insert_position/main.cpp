@@ -19,3 +19,6 @@ int searchInsert(vector<int> arr, int target) {
 
   return ind;
 }
+
+// Link -
+// https: // leetcode.com/problems/search-insert-position/

@@ -20,3 +20,6 @@ int upperBound(vector<int> arr, int target) {
 
   return ind;
 }
+
+// Link -
+// https://bit.ly/3CgDDjE

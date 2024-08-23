@@ -50,3 +50,6 @@ int count(int arr[], int n, int target) {
 
   return last - first + 1;
 }
+
+// Link -
+// https://bit.ly/3SVcOqW

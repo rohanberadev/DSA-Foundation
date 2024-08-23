@@ -49,3 +49,6 @@ int smallestDivisor(vector<int> &nums, int threshold) {
 
   return low;
 }
+
+// Link -
+// https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/

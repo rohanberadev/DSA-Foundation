@@ -28,3 +28,6 @@ int findMin(vector<int> &arr) {
 
   return mini;
 }
+
+// Link -
+// https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/

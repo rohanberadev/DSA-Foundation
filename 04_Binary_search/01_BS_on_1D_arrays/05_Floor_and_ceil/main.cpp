@@ -53,3 +53,6 @@ vector<int> getFloorAndCeil(vector<int> arr, int x) {
 
   return {f, c};
 }
+
+// Link -
+// https://bit.ly/3CgDDjE
