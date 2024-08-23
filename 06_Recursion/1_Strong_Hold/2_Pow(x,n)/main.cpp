@@ -1,46 +1,71 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include <cmath>
 using namespace std;
 
-// Time :- O(N)
-int pow_iterative(int x, int n) {
-	int ans = 1;
-	if (n == 0) {
-		return 1;
-	}
+// Time :- O(log N)
+double pow_iterative(double x, int n) {
+  double ans = 1;
+  bool sign = false;
 
-	for (int i = 1; i <= n; i++) {
-		ans *= x;
-	}
+  if (x == 1) {
+    return x;
+  }
 
-	return ans;
+  if (n < 0) {
+    sign = true;
+  }
+
+  n = abs(n);
+
+  while (n > 0) {
+    if (n % 2 == 0) {
+      x = x * x;
+      n = n / 2;
+    }
+
+    else {
+      ans = ans * x;
+      n = n - 1;
+    }
+  }
+
+  if (sign) {
+    return 1.0 / ans;
+  }
+
+  return ans;
 }
 
 // Time :- O(log N)
-int pow_recursive(int x, int n) {
-	int ans = 1;
-	if (n == 0) {
-		return 1;
-	}
+double pow_recursive(double x, int n) {
+  double ans = 1;
 
-	if (n%2 == 0) {
-		x = x * x;
-		n /= 2;
-	} else {
-		ans *= x;
-		n -= 1;
-	}
+  if (n == 0) {
+    return 1;
+  }
 
-	ans *= pow_recursive(x, n);
+  if (n % 2 == 0) {
+    x = x * x;
+    n = n / 2;
+  }
 
-	return ans;
+  else {
+    ans = ans * x;
+    n = n - 1;
+  }
+
+  return ans * pow_recursive(x, n);
 }
 
-int main() {
-	int x;
-	int n;
-	cin >> x;
-	cin >> n;
-	cout << pow_iterative(x, n) << endl;
-	cout << pow_recursive(x, n);
-	return 0;
+double myPow(double x, int n) {
+  if (n < 0) {
+    return 1.0 / pow_recursive(x, abs(n));
+  }
+
+  else {
+    return pow_recursive(x, n);
+  }
 }
+
+// Link -
+// https://leetcode.com/problems/powx-n/
