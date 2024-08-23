@@ -1,3 +1,0 @@
-Brute: 0 0 1 1 2 2 
-Better: 0 0 1 1 2 2 
-Optimal: 0 0 1 1 2 2 

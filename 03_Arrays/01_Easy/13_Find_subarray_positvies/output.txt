@@ -1,4 +1,0 @@
-Brute: 2
-Better: 2
-Hashing: 2
-Optimal: 2

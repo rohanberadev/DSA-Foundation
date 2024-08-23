@@ -1,2 +1,0 @@
-Brute: 2
-Optimal: 2

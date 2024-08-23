@@ -1,3 +1,0 @@
-Brute: 3
-Better: 3
-Hashing/Optimal: 3
