@@ -1,71 +1,45 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 // Time :- O(4^(m*n))
-// Space :-  O(m*n) 
-vector<string> ratInAMaze(vector<vector<int>> &maze, int n) {
-	vector<string> ans;
-	vector<vector<int>> vis(n, vector<int>(n, 0));
+// Space :-  O(m*n)
+void backtrack(vector<vector<int>> &maze, vector<string> &ans, string path,
+               int row, int col, int n, int m) {
 
-	function<void(int, int, string)> backtrack = [&](int r, int c, string path) -> void {
-		if (r == n-1 && c == n-1) {
-			ans.push_back(path);
-			return;
-		}
+  if (row == n - 1 && col == m - 1 && maze[row][col] == 1) {
+    ans.push_back(path);
+    return;
+  }
 
-		// up or upwards
-		if (r-1 >= 0 && !vis[r-1][c] && maze[r-1][c] == 1) {
-			vis[r][c] = 1;
-			backtrack(r-1, c, path + "U");
-			vis[r][c] = 0;
-		}
+  if (row == n || col == m || row < 0 || col < 0 || maze[row][col] == -1 ||
+      maze[row][col] == 0) {
+    return;
+  }
 
-		// down or downwards
-		if (r+1 < n && !vis[r+1][c] && maze[r+1][c] == 1) {
-			vis[r][c] = 1;
-			backtrack(r+1, c, path + "D");
-			vis[r][c] = 0;
-		}
+  maze[row][col] = -1;
 
-		// left or backwards
-		if (c-1 >= 0 && !vis[r][c-1] && maze[r][c-1] == 1) {
-			vis[r][c] = 1;
-			backtrack(r, c-1, path + "L");
-			vis[r][c] = 0;
-		}
+  // up
+  backtrack(maze, ans, path + "U", row - 1, col, n, m);
+  // down
+  backtrack(maze, ans, path + "D", row + 1, col, n, m);
+  // left
+  backtrack(maze, ans, path + "L", row, col - 1, n, m);
+  // right
+  backtrack(maze, ans, path + "R", row, col + 1, n, m);
 
-		// right or towards
-		if (c+1 < n && !vis[r][c+1] && maze[r][c+1] == 1) {
-			vis[r][c] = 1;
-			backtrack(r, c+1, path + "R");
-			vis[r][c] = 0;
-		}
-	};
-
-
-	if (maze[0][0] == 1) backtrack(0, 0, "");
-
-	return ans;
+  maze[row][col] = 1;
 }
 
-int main() {
+vector<string> findPath(vector<vector<int>> &maze) {
+  int n = maze.size();
+  int m = maze[0].size();
 
-	int n = 4;
-	vector<vector<int>> maze = {{1,0,0,0},{1,1,0,1},{1,1,0,0},{0,1,1,1}};
+  vector<string> ans;
 
-   for (int r = 0; r < n; r++) {
-	   	for (int c = 0; c < n; c++) {
-	   		cout << maze[r][c] << " ";
-	   	}
-	   	cout << endl;
-   }
-   cout << endl;
+  backtrack(maze, ans, "", 0, 0, n, m);
 
-   vector<string> ans = ratInAMaze(maze, n);
-
-   for (auto it : ans) {
-   		cout << it << endl;
-   }
-
-	return 0;
+  return ans;
 }
+
+// Link -
+// https://practice.geeksforgeeks.org/problems/rat-in-a-maze-problem/1
