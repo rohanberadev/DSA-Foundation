@@ -13,13 +13,26 @@ struct TreeNode {
       : val(val), left(left), right(right) {}
 };
 
+void reversePreorder(TreeNode *root, int level, vector<int> &ans) {
+  if (root == nullptr) {
+    return;
+  }
+
+  if (level == ans.size()) {
+    ans.push_back(root->val);
+  }
+
+  reversePreorder(root->right, level + 1, ans);
+  reversePreorder(root->left, level + 1, ans);
+}
+
 vector<int> rightSideView(TreeNode *root) {
   vector<int> ans;
   if (root == nullptr) {
     return ans;
   }
 
-  TreeNode *node = root;
+  reversePreorder(root, 0, ans);
 
   return ans;
 }
