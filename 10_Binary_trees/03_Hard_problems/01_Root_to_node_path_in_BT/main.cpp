@@ -41,4 +41,4 @@ void rightPath(TreeNode *root, vector<int> &ds) {
   }
 }
 
-vector<vector<int>> paths(TreeNode *root) {}
+vector<vector<int>> paths(TreeNode *root) { return {{}}; }

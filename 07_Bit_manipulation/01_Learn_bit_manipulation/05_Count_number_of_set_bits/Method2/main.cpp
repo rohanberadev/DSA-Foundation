@@ -2,38 +2,40 @@
 using namespace std;
 
 string decimalToBinary(int n) {
-	string bin = "";
+  string bin = "";
 
-	function<void()> solve = [&]() -> void {
-		if (n == 0) return;
+  function<void()> solve = [&]() -> void {
+    if (n == 0)
+      return;
 
-		int x = n % 2;
-		n /= 2;
-		solve();
+    int x = n % 2;
+    n /= 2;
+    solve();
 
-		bin += to_string(x);
-	}
+    bin += to_string(x);
+  };
 
-	solve();
+  solve();
 
-	return bin;
+  return bin;
 }
 
 int countSetBits(int num) {
-	if (num == 0) return 0;
+  if (num == 0)
+    return 0;
 
-	num = num & (num-1);
-	int count = countSetBits(num);
-	return count+1;
+  num = num & (num - 1);
+  int count = countSetBits(num);
+  return count + 1;
 }
 
 int main() {
-	int n;
-	cin >> n;
+  int n;
+  cin >> n;
 
-	cout << decimalToBinary(n) << endl;
+  cout << decimalToBinary(n) << endl;
 
-	cout << countSetBits(n);
+  cout << countSetBits(n);
 
-	return 0;
+  return 0;
 }
