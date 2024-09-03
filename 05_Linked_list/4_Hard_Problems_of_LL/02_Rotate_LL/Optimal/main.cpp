@@ -2,98 +2,98 @@
 using namespace std;
 
 struct Node {
-	int data;
-	Node* next;
+  int data;
+  Node *next;
 
-	// constructor
-	Node(int data, Node* next = nullptr) : data(data), next(next) {}
+  // constructor
+  Node(int data, Node *next = nullptr) : data(data), next(next) {}
 };
 
-bool empty(Node* head) {
-	return head == nullptr;
+bool empty(Node *head) { return head == nullptr; }
+
+void print_list(Node *head) {
+  if (empty(head)) {
+    cout << "List is empty." << endl;
+  }
+
+  for (Node *node = head; node != nullptr; node = node->next) {
+    cout << node->data << " ";
+  }
+  cout << endl;
 }
 
-void print_list(Node* head) {
-	if (empty(head)) {
-		cout << "List is empty." << endl;
-	}
+Node *convertArrayToList(int arr[], int n) {
+  Node *head = new Node(arr[0]);
+  Node *node = head;
 
-	for (Node* node = head; node != nullptr; node = node->next) {
-		cout << node->data << " ";
-	}
-	cout << endl;
+  for (int i = 1; i < n; i++) {
+    node->next = new Node(arr[i]);
+    node = node->next;
+  }
+
+  return head;
 }
 
-Node* convertArrayToList(int arr[], int n) {
-	Node* head = new Node(arr[0]);
-	Node* node = head;
+Node *getKthNode(Node *head, int k) {
+  k--;
+  Node *node = head;
+  while (node != nullptr && k > 0) {
+    node = node->next;
+    k--;
+  }
 
-	for (int i = 1; i < n; i++) {
-		node->next = new Node(arr[i]);
-		node = node->next;
-	}
-
-	return head;
+  return node;
 }
 
-Node* getKthNode(Node* head, int k) {
-	k--;
-	Node* node = head;
-	while (node!= nullptr && k > 0) {
-		node = node->next;
-		k--;
-	}
+Node *rotateRight(Node *head, int k) {
 
-	return node;
-}
+  if (empty(head) || head->next == nullptr) {
+    return head;
+  }
 
-Node* rotateRight(Node* head, int k) {
+  int len = 1;
+  Node *tail = head;
+  while (tail->next != nullptr) {
+    tail = tail->next;
+    len++;
+  }
 
-	if (empty(head) || head->next == nullptr) {
-		return head;
-	}
+  k = k % len;
 
-	int len = 1;
-	Node* tail = head;
-	while (tail->next != nullptr) {
-		tail = tail->next;
-		len++;
-	}
+  if (k == 0) {
+    return head;
+  }
 
-	k = k % len;
+  k = len - k;
 
-	if (k == 0) {
-		return head;
-	}
+  Node *kthNode = getKthNode(head, k);
+  Node *newHead = kthNode->next;
 
-	Node* kthNode = getKthNode(head, k);
-	Node* newHead = kthNode->next;
+  kthNode->next = nullptr;
+  tail->next = head;
+  head = newHead;
 
-	kthNode->next = nullptr;
-	tail->next = head;
-	head = newHead;
-
-	return head;
+  return head;
 }
 
 int main() {
 
-	int size;
-	cin >> size;
+  int size;
+  cin >> size;
 
-	int k;
-	cin >> k;
+  int k;
+  cin >> k;
 
-	int arr[size];
-	for (int i = 0; i < size; i++) {
-		cin >> arr[i];
-	}
+  int arr[size];
+  for (int i = 0; i < size; i++) {
+    cin >> arr[i];
+  }
 
-	Node* head = convertArrayToList(arr, size);
-	print_list(head);
+  Node *head = convertArrayToList(arr, size);
+  print_list(head);
 
-	head = rotateRight(head, k);
-	print_list(head);
+  head = rotateRight(head, k);
+  print_list(head);
 
-	return 0;
+  return 0;
 }
