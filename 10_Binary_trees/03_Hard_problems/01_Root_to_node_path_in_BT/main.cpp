@@ -13,32 +13,43 @@ struct TreeNode {
       : val(val), left(left), right(right) {}
 };
 
-void leftPath(TreeNode *root, vector<int> &ds) {
+vector<int> convertArray2Vector(int arr[], int len) {
+  vector<int> path;
+  for (int i = 0; i < len; i++) {
+    path.push_back(arr[i]);
+  }
+  return path;
+}
+
+void pathsUtil(TreeNode *root, int path[], vector<vector<int>> &ans, int len) {
   if (root == nullptr) {
     return;
   }
 
-  ds.push_back(root->val);
+  path[len] = root->val;
+  len++;
 
-  if (root->left) {
-    leftPath(root->left, ds);
-  } else {
-    leftPath(root->right, ds);
+  if (root->left == nullptr && root->right == nullptr) {
+    ans.push_back(convertArray2Vector(path, len));
+  }
+
+  else {
+    pathsUtil(root->left, path, ans, len);
+    pathsUtil(root->right, path, ans, len);
   }
 }
 
-void rightPath(TreeNode *root, vector<int> &ds) {
+vector<vector<int>> paths(TreeNode *root) {
+  vector<vector<int>> ans;
+
   if (root == nullptr) {
-    return;
+    return ans;
   }
 
-  ds.push_back(root->val);
+  int path[INT_MAX];
 
-  if (root->right) {
-    leftPath(root->right, ds);
-  } else {
-    leftPath(root->left, ds);
-  }
+  return ans;
 }
 
-vector<vector<int>> paths(TreeNode *root) { return {{}}; }
+// Link -
+// https://bit.ly/3QA600D
